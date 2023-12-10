@@ -33,7 +33,7 @@ namespace WebApiPokemon.Controllers
         {
             if(entrenador.Id != id)
             {
-                return BadRequest("El id del entrenador no coincide con el id de la URL");
+                return BadRequest("El id del entrenador Pokemon no coincide con el id de la URL");
             }
             
             var existe = await _context.Entrenador.AnyAsync(x => x.Id == id);
