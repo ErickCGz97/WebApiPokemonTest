@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 using WebApiPokemon.Entidades;
 
 namespace WebApiPokemon
@@ -15,7 +16,9 @@ namespace WebApiPokemon
         //This method gets call by a runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services) 
         {
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(x =>
+            x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
 

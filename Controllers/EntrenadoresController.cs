@@ -17,7 +17,7 @@ namespace WebApiPokemon.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Entrenador>>> Get()
         {
-            return await _context.Entrenador.ToListAsync();
+            return await _context.Entrenador.Include(x => x.Pokemon).ToListAsync();
         }
 
         [HttpPost]

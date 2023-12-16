@@ -9,5 +9,6 @@ namespace WebApiPokemon.Entidades
         }
 
         public DbSet<Entrenador> Entrenador { get; set;}
+        public DbSet<Pokemon> Pokemon { get; set;}
     }
 }
